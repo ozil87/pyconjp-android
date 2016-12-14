@@ -12,7 +12,7 @@ password <YOUR_PASSWORD>
 
 ```
 cd ~ && 
-git clone https://github.com/pyconjp/pyconjp-android.git && 
+git clone https://github.com/ozil87/pyconjp-android.git && 
 cd pyconjp-android && 
 git checkout develop &&
 GOOGLE_MAP_APIKEY_DEBUG='<YOUR_GOOGLE_MAP_APIKEY>' FABRIC_APIKEY='<YOUR_FABRIC_APIKEY>' ./gradlew clean assembleDebug
