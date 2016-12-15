@@ -5,5 +5,6 @@ cd /root/pyconjp-android
 git checkout master 
 export GOOGLE_MAP_APIKEY_DEBUG='AIzaSyCCXbN6Cz1GwBVN0-Iwtv88AxMawmx30Z0'
 export FABRIC_APIKEY='12430140ad5b86ad46425c2d201946ea7795cb42' 
-/root/pyconjp-android/gradlew clean assembleDebug
+/root/android-sdk-linux/tools/android update sdk -a -u -t 4
+./gradlew clean assembleDebug
 
