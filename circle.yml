@@ -2,7 +2,7 @@ machine:
     java:
         version: openjdk8
     environment:
-        JAVA_OPTS: "-Xmx2048m -XX:MaxPermSize=1024m"
+        JAVA_OPTS: "-Xmx1024m -XX:MaxPermSize=512m"
 
 dependencies:
   pre:
