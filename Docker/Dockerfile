@@ -7,10 +7,10 @@ RUN cd && wget https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && ta
     echo y | /root/android-sdk-linux/tools/android update sdk -a -u -t build-tools-24.0.0,android-24,extra-android-support,extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services
 RUN echo y | /root/android-sdk-linux/tools/android update sdk -a -u -t 4    
 ENV ANDROID_HOME /root/android-sdk-linux
-ENV FABRIC_APIKEY_DEBUG YOUR_API_KEY
-ENV GOOGLE_MAP_APIKEY_DEBUG YOUR_API_KEY
-ENV FABRIC_APIKEY_RELEASE YOUR_API_KEY
-ENV GOOGLE_MAP_APIKEY_RELEASE YOUR_API_KEY
+ENV FABRIC_APIKEY_DEBUG 12430140ad5b86ad46425c2d201946ea7795cb42
+ENV GOOGLE_MAP_APIKEY_DEBUG AIzaSyCCXbN6Cz1GwBVN0-Iwtv88AxMawmx30Z0
+ENV FABRIC_APIKEY_RELEASE 12430140ad5b86ad46425c2d201946ea7795cb42
+ENV GOOGLE_MAP_APIKEY_RELEASE AIzaSyCCXbN6Cz1GwBVN0-Iwtv88AxMawmx30Z0
 COPY app-build.sh /root/
 COPY netrc /root/.netrc
 
