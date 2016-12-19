@@ -1,6 +1,6 @@
 set -ex
 cd ~ && 
-git clone https://github.com/pyconjp/pyconjp-android.git && 
+git clone https://github.com/ozil87/pyconjp-android.git && 
 cd pyconjp-android && 
-git checkout $1 &&
-./gradlew clean $2
+git checkout master &&
+./gradlew clean assembleDebug
