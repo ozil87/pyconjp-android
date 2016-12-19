@@ -1,8 +1,22 @@
-date=$(shell date +%s)
-apk: Dockerfile app-build.sh
-	docker build -t app-build:0.1 .
-	docker run --name="app-$(date)" app-build:0.1
-	docker exec -it `docker ps | grep app | awk '{print $1}' ` sh /root/app-build.sh
-	docker cp app-$(date):/root/pyconjp-android/app/build/outputs/apk/app-production-debug.apk .
+date = default
+NAME = clashclanvn/app_build
+VERSION = 0.1
+prepare: app-build.sh
+        docker build -rm -t app-apk:0.1 .
+        docker run  -dti --name="app-$(date)" app-apk:0.1 bash
+build:
+        docker exec -it `docker ps -a| grep app-apk | awk '{print $1}'` /bin/sh -c "/root/app-build.sh"
+        #docker exec -it `docker ps -a| grep app-apk | awk '{print $1}' ` /bin/sh  -c "/root/app-build.sh"
+git:
+        rm -rf /opt/apk/*
+        cd /opt/ && git clone https://github.com/ozil87/apk.git
+        cd /opt/apk/ && git remote set-url origin https://ozil87:test12333@github.com/ozil87/apk.git
+        docker cp app-$(date):/root/pyconjp-android/app/build/outputs/apk/app-production-debug.apk /opt/apk/
+        cd /opt/apk/ && git add app-production-debug.apk
+#       cd /opt/apk/ && git pull --rebase origin master
+        cd /opt/apk/ && git commit -m "Add new apk file"
+        cd /opt/apk/ && git push -u origin master
+
 clean:
-	docker ps -a | grep "app" | awk '{print $1}' | xargs docker rm
+        docker ps -a | grep "app-apk" | awk '{print $1}' | xargs docker rm -f
+
