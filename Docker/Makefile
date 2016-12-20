@@ -10,7 +10,9 @@ build:
         docker exec -it `docker ps -a| grep app-apk | awk '{print $1}'` /bin/sh -c "/root/app-build.sh"
         #docker exec -it `docker ps -a| grep app-apk | awk '{print $1}' ` /bin/sh  -c "/root/app-build.sh"
 git:
-        rm -rf /opt/apk/*
+        rm -rf /opt/apk
+        cd /opt/apk/ && git config --global user.name "ozil87"
+        cd /opt/apk/ && git config --global user.email "nguyenhaichaudt5@gmail.com"
         cd /opt/ && git clone https://github.com/ozil87/apk.git
         cd /opt/apk/ && git remote set-url origin https://ozil87:test12333@github.com/ozil87/apk.git
         docker cp app-$(date):/root/pyconjp-android/app/build/outputs/apk/app-production-debug.apk /opt/apk/app-production-debug-$(date1).apk
