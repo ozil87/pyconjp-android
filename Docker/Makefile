@@ -6,6 +6,7 @@ prepare:
         docker build --rm -t app-apk:0.1 .
         docker run  -dti --name="app-$(date)" app-apk:0.1 bash
 build:
+        docker exec -it `docker ps -a| grep app-apk | awk '{print $1}'` /bin/sh -c "rm -rf /root/pyconjp-android"
         docker exec -it `docker ps -a| grep app-apk | awk '{print $1}'` /bin/sh -c "/root/app-build.sh"
         #docker exec -it `docker ps -a| grep app-apk | awk '{print $1}' ` /bin/sh  -c "/root/app-build.sh"
 git:
