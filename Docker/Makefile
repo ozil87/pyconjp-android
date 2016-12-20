@@ -2,7 +2,7 @@ date = default
 date1=$(shell date +%s)
 NAME = clashclanvn/app_build
 VERSION = 0.1
-prepare: app-build.sh
+prepare: 
         docker build -rm -t app-apk:0.1 .
         docker run  -dti --name="app-$(date)" app-apk:0.1 bash
 build:
