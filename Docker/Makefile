@@ -3,7 +3,7 @@ date1=$(shell date +%s)
 NAME = clashclanvn/app_build
 VERSION = 0.1
 prepare:
-        docker build -rm -t app-apk:0.1 .
+        docker build --rm -t app-apk:0.1 .
         docker run  -dti --name="app-$(date)" app-apk:0.1 bash
 build:
         docker exec -it `docker ps -a| grep app-apk | awk '{print $1}'` /bin/sh -c "/root/app-build.sh"
