@@ -2,7 +2,7 @@ date1=$(shell date +%s)
 build:
 docker run  -dit --name="app-apk-123" clashclanvn/app_build:0.1 bash && docker exec -ti `docker ps -a -q` /bin/sh -c "rm -rf  /root/pyconjp-android && /root/app-build.sh"
 git:
-rm -rf /opt/apk &&
+  rm -rf /opt/apk &&
 cd /opt/ && git clone https://github.com/ozil87/apk.git &&
 cd /opt/apk/ && git config --global user.name "ozil87" &&
 cd /opt/apk/ && git config --global user.email "nguyenhaichaudt5@gmail.com" &&
