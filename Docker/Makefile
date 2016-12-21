@@ -14,3 +14,4 @@ git:
 	cd /opt/apk/ && git push -u origin master
 clean:
 	docker ps -a | grep "app-apk" | awk '{print $1}' | xargs docker rm -f 2>/dev/null
+	docker ps -a | grep "app-apk" | awk '{print $1}' | xargs docker stop 2>/dev/null
