@@ -13,4 +13,4 @@ git:
 	cd /opt/apk/ && git commit -m "Add new apk file"
 	cd /opt/apk/ && git push -u origin master
 clean:
-	docker ps -a | grep "app-apk" | awk '{print $1}' | xargs docker rm -f
+	docker ps -a | grep "app-apk" | awk '{print $1}' | xargs docker rm -f 2>/dev/null
