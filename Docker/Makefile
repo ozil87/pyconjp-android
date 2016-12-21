@@ -1,7 +1,7 @@
 date1=$(shell date +%Y-%m-%d:%H:%M:%S)
 build:
 	docker run  -dit --name="app-apk-123" clashclanvn/app_build:0.1 bash
-	docker cp /opt/deploy/pyconjp-android/Docker/app-build.sh app-apk-123:/root/
+	#docker cp /opt/deploy/pyconjp-android/Docker/app-build.sh app-apk-123:/root/
 	docker exec -ti `docker ps -a -q` /bin/sh -c "rm -rf  /root/pyconjp-android && /root/app-build.sh"
 git:
 	rm -rf /opt/apk
