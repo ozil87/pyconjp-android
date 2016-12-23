@@ -33,5 +33,5 @@ deployment:
     commands:
       - ./gradlew assembleProductionDebug
       - cp -r app/build/outputs $CIRCLE_ARTIFACTS
-      - curl -F "file=@app/build/outputs/apk/app-production-debug.apk" -F "token=${DEPLOY_GATE_API_KEY}" -F "message=Deploy from CircleCI." https://deploygate.com/api/users/${DEPLOY_GATE_USER}/apps
+      - curl -F "file=@app/build/outputs/apk/app-production-debug.apk" -F "token=77497ccbb842d2ef8c4495034054ac791f54effe" -F "message=Deploy from CircleCI." https://deploygate.com/api/users/ozil87/apps
 
